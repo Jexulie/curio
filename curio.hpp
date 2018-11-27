@@ -1,18 +1,25 @@
 #pragma once
+#include <string>
 #include <ctime>
+
+using namespace std;
 
 class Time{
     public:
         time_t now;
         tm *local;
+
         Time();
-        void curHour(void);
-        void curMin(void);
-        void curDay(void);
-        void curWeekDay(void);
-        void curSec(void);
-        void curMonth(void);
-        void curYear(void);
+        ~Time();
+
+        string curHour(void);
+        string curMin(void);
+        string curDay(void);
+        string curWeekDay(void);
+        string curSec(void);
+        string curMonth(void);
+        string curYear(void);
+
         void addMin(int min);
         void addHour(int hour);
         void addDay(int day);

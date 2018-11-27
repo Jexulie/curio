@@ -1,8 +1,9 @@
 #include "curio.hpp"
-#include <string>
 #include <iostream>
+#include <string>
 
 using namespace std;
+
 // Could Return a String
 // add - day - month - year change to epoch timing
 // recive a string and turn in to a date - vice versa
@@ -10,49 +11,55 @@ Time::Time() {
     now = time(0);
     local = localtime(&now);
 }
-void Time::curHour(void){
-    cout << local->tm_hour << endl;
+
+Time::~Time(){}
+
+string Time::curHour(void){
+   return to_string(local->tm_hour);
 }
 
-void Time::curMin(void){
-    cout << local->tm_min << endl;
+string Time::curMin(void){
+   return to_string(local->tm_min);
 }
-void Time::curDay(void){
-    cout << local->tm_mday << endl;
+string Time::curDay(void){
+   return to_string(local->tm_mday);
 }
-void Time::curWeekDay(void){
+string Time::curWeekDay(void){
     switch(local->tm_wday){
         case 1:
-            cout << "Monday" << endl;
+           return string("Monday");
             break;
         case 2:
-            cout << "Tuesday" << endl;
+           return string("Tuesday");
             break;
         case 3:
-            cout << "Wednesday" << endl;
+           return string("Wednesday");
             break;
         case 4:
-            cout << "Thursday" << endl;
+           return string("Thursday");
             break;
         case 5:
-            cout << "Friday" << endl;
+           return string("Friday");
             break;
         case 6:
-            cout << "Saturday" << endl;
+           return string("Saturday");
             break;
         case 7:
-            cout << "Sunday" << endl;
+           return string("Sunday");
+            break;
+        default:
+            return string("");
             break;
     }    
 }
-void Time::curSec(void){
-    cout << local->tm_sec << endl;
+string Time::curSec(void){
+   return to_string(local->tm_sec);
 }
-void Time::curMonth(void){
-    cout << local->tm_mon + 1 << endl;
+string Time::curMonth(void){
+   return to_string(local->tm_mon + 1);
 }
-void Time::curYear(void){
-    cout << local->tm_year + 1900 << endl;
+string Time::curYear(void){
+   return to_string(local->tm_year + 1900);
 }
 void Time::addMin(int min){
     now += 60 * min;
